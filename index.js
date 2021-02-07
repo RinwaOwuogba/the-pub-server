@@ -22,7 +22,7 @@ mongoose.connect(process.env.DATABASE_URL, {
 });
 
 const whitelist = [
-	'localhost:3000',
+	'http://localhost:3000',
 	'https://nervous-colden-2c004b.netlify.app/',
 ];
 
