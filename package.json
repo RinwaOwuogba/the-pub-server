@@ -1,37 +1,38 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "npm test",
-    "start": "nodemon index.js"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "eslint": "^7.14.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-node": "^11.1.0",
-    "nodemon": "^2.0.6",
-    "prettier": "^2.2.0",
-    "pretty-quick": "^3.1.0"
-  },
-  "dependencies": {
-    "bcrypt": "^5.0.0",
-    "cookie-parser": "^1.4.5",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "helmet": "^4.2.0",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.10.16"
-  }
+	"name": "server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "npm test",
+		"start": "node index.js",
+		"dev": "nodemon index.js"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "pretty-quick --staged"
+		}
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"eslint": "^7.14.0",
+		"eslint-config-airbnb-base": "^14.2.1",
+		"eslint-config-prettier": "^6.15.0",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-node": "^11.1.0",
+		"nodemon": "^2.0.6",
+		"prettier": "^2.2.0",
+		"pretty-quick": "^3.1.0"
+	},
+	"dependencies": {
+		"bcrypt": "^5.0.0",
+		"cookie-parser": "^1.4.5",
+		"cors": "^2.8.5",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"helmet": "^4.2.0",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^5.10.16"
+	}
 }
