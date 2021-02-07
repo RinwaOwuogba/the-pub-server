@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
+const morgan = require('morgan');
 
 require('dotenv').config({
 	path: '.env',
@@ -9,6 +10,7 @@ require('dotenv').config({
 
 const mongoose = require('mongoose');
 
+const logger = require('./config/logger');
 const middlewares = require('./middlewares');
 
 require('dotenv').config();
@@ -28,6 +30,7 @@ const whitelist = [
 
 const corsOptions = {
 	origin: (origin, callback) => {
+		logger.info(origin);
 		if (whitelist.indexOf(origin) !== -1) {
 			callback(null, true);
 		} else if (process.env.NODE_ENV !== 'production') {
@@ -40,17 +43,17 @@ const corsOptions = {
 	credentials: true,
 };
 
+app.use(morgan('common'));
 app.use(helmet());
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
-app.use('/users', require('./routes/users'));
+app.use('/users', require('./api/users/users.routes.js'));
 
 app.use(middlewares.errorHandler);
 
-//
 const port = process.env.PORT || 4000;
 app.listen(port, () => {
-	console.log('Listening on port', port);
+	logger.info('Listening on port', port);
 });
