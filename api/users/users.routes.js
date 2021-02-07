@@ -2,6 +2,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const logger = require('../../config/logger.js');
 const UserModel = require('./users.model.js');
 
 const generateAccessTokens = (userId) => {
@@ -27,6 +28,7 @@ router.post('/signup', async (req, res, next) => {
 		});
 
 		const createdUser = await newUser.save();
+		logger.info('User created successfully');
 		const { refreshToken, accessToken } = generateAccessTokens(createdUser._id);
 
 		res.cookie('refreshToken', refreshToken, {
